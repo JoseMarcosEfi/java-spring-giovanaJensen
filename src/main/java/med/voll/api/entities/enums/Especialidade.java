@@ -6,16 +6,17 @@ public enum Especialidade {
     GINECOLOGIA(2),
     DERMATOLOGIA(3);
 
-    private int EspecialidadeCodigo;
+    private final int especialidadeCodigo;
 
     private Especialidade(int especialidade) {
-        this.EspecialidadeCodigo = especialidade;
+        this.especialidadeCodigo = especialidade;
     }
     public int getEspecialidade(){
-        return EspecialidadeCodigo;
+        return especialidadeCodigo;
     }
     public static Especialidade valueOf(int especialidadeCodigo){
         for(Especialidade value : Especialidade.values()){
+
             if(especialidadeCodigo == value.getEspecialidade())
                 return value;
         }

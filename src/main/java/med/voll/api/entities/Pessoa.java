@@ -1,11 +1,12 @@
 package med.voll.api.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import med.voll.api.endereco.DadosEndereco;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Data
 @AllArgsConstructor
@@ -13,9 +14,17 @@ import med.voll.api.endereco.DadosEndereco;
 @MappedSuperclass
 public abstract class Pessoa
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected long id;
+    @NotNull
     protected String nome;
+    @NotNull
     protected String email;
+    @NotNull
     protected String telefone;
+    @CPF
+    @NotNull
     protected String cpf;
     protected DadosEndereco endereco;
 
